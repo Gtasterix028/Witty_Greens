@@ -3,9 +3,13 @@ package com.spring.jwt.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 @Entity
+@Getter
+@Setter
 public class Plant {
     @Id
     @GeneratedValue
@@ -14,111 +18,57 @@ public class Plant {
 
 
 
-    private double temperature;
-    private double humidity;
+    private Double temperature;
+    private Double humidity;
     private String growMedium;
     private String nutritions;
     private String containerType;
-    private double plantHeight;
+    private Double plantHeight;
     private String comment;
     private byte[] photo;
     private LocalDateTime dateTime;
     private Integer LUX;
     private Integer PPFD;
 
-    // Getters and setters
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getTemperature() {
-        return temperature;
-    }
-
-    public void setTemperature(double temperature) {
-        this.temperature = temperature;
-    }
-
-    public double getHumidity() {
-        return humidity;
-    }
-
-    public void setHumidity(double humidity) {
-        this.humidity = humidity;
-    }
-
-    public String getGrowMedium() {
-        return growMedium;
+        if (name != null) {
+            this.name = name.toLowerCase();
+        } else {
+            this.name = null;
+        }
     }
 
     public void setGrowMedium(String growMedium) {
-        this.growMedium = growMedium;
-    }
-
-    public String getNutritions() {
-        return nutritions;
+        if (growMedium != null) {
+            this.growMedium = growMedium.toLowerCase();
+        } else {
+            this.growMedium = null;
+        }
     }
 
     public void setNutritions(String nutritions) {
-        this.nutritions = nutritions;
-    }
-
-    public String getContainerType() {
-        return containerType;
+        if (nutritions != null) {
+            this.nutritions = nutritions.toLowerCase();
+        } else {
+            this.nutritions = null;
+        }
     }
 
     public void setContainerType(String containerType) {
-        this.containerType = containerType;
-    }
-
-    public double getPlantHeight() {
-        return plantHeight;
-    }
-
-    public void setPlantHeight(double plantHeight) {
-        this.plantHeight = plantHeight;
-    }
-
-    public String getComment() {
-        return comment;
+        if (containerType != null) {
+            this.containerType = containerType.toLowerCase();
+        } else {
+            this.containerType = null;
+        }
     }
 
     public void setComment(String comment) {
-        this.comment = comment;
+        if (comment != null) {
+            this.comment = comment.toLowerCase();
+        } else {
+            this.comment = null;
+        }
     }
 
-    public byte[] getPhoto() {
-        return photo;
-    }
 
-    public void setPhoto(byte[] photo) {
-        this.photo = photo;
-    }
-
-    public LocalDateTime getDateTime() {
-        return dateTime;
-    }
-
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
-    }
-    public Integer getLUX() {
-        return LUX;
-    }
-
-    public void setLUX(Integer LUX) {
-        this.LUX = LUX;
-    }
-
-    public Integer getPPFD() {
-        return PPFD;
-    }
-
-    public void setPPFD(Integer PPFD) {
-        this.PPFD = PPFD;
-    }
 }

@@ -83,6 +83,7 @@ public class AppConfig {
                 .authorizeHttpRequests()
 
                 .requestMatchers("/account/**").permitAll()
+                .requestMatchers("/api/plants/**").permitAll()
                 .requestMatchers("/api/**").hasAnyAuthority("USER")
 
                 .anyRequest().authenticated()
